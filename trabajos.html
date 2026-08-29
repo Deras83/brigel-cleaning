@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Trabajos | Portafolio</title>
+    
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos de Carruseles y Lightbox (Swiper y Fancybox) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    
+    <!-- Estilo Principal del Sitio (Mismo que index) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAV -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.jpg" alt="Brigel Cleaning Logo" class="logo-img">
+                <span>Brigel Cleaning</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="trabajos.html">Trabajos</a></li>
+                <li><a href="index.html#contacto" class="btn-nav">Contacto</a></li>
+            </ul>
+
+            <div class="menu-hamburger" id="menuHamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- GALERÍA DE TRABAJOS -->
+    <main class="container section">
+        <div class="section-header">
+            <span class="sub-title">Galería de Proyectos</span>
+            <h2>Nuestros Trabajos Realizados</h2>
+        </div>
+
+        <div class="grid-cards">
+            
+            <!-- TARJETA DE PROYECTO 1 -->
+            <div class="gallery-item">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="img/trabajos/proyecto1/1.jpg" data-fancybox="proyecto-1">
+                                <img src="img/trabajos/proyecto1/1.jpg" alt="Proyecto 1 - Foto 1">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="img/trabajos/proyecto1/2.jpg" data-fancybox="proyecto-1">
+                                <img src="img/trabajos/proyecto1/2.jpg" alt="Proyecto 1 - Foto 2">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
+            <!-- TARJETA DE PROYECTO 2 (Soporte para Imagen y Video) -->
+            <div class="gallery-item">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="img/trabajos/proyecto2/1.jpg" data-fancybox="proyecto-2">
+                                <img src="img/trabajos/proyecto2/1.jpg" alt="Proyecto 2 - Foto 1">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="img/trabajos/proyecto2/video.mp4" data-fancybox="proyecto-2">
+                                <video muted loop paused class="inner-video">
+                                    <source src="img/trabajos/proyecto2/video.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>MI EMPRESA</h3>
+                <p>Calidad visible, compromiso real.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="trabajos.html">Trabajos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts CDN para Carruseles e Interacción -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Inicialización de Swiper y Fancybox -->
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        Fancybox.bind("[data-fancybox]", {
+            Hash: false,
+            Thumbs: {
+                autoStart: false,
+            },
+        });
+    </script>
+</body>
+</html>

@@ -53,8 +53,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1.5rem; /* Reducimos el padding vertical a 0.5rem */
-    min-height: 55px;         /* Controlamos la altura mínima a 55px */
+    padding: 0.5rem 1.5rem; /* Padding vertical a 0.5rem */
+    min-height: 55px;         /* Altura mínima de 55px */
 }
 
 .logo {
@@ -98,6 +98,7 @@ body {
 .nav-links a:hover {
     color: var(--primary-color);
 }
+
 .logo span {
     color: var(--primary-color); /* Aplica el color principal a "Brigel" */
 } 
@@ -105,6 +106,7 @@ body {
 .logo strong {
     color: var(--primary-color); /* Aplica el mismo color a "CLEANING" */
 }
+
 .btn-nav {
     background-color: var(--primary-color);
     color: var(--white) !important;
@@ -136,14 +138,14 @@ body {
    ========================================================================== */
 .hero {
     position: relative;
-    background-image: url('../img/baner1.jpg'); /* Si la imagen está en la carpeta img */
+    background-image: url('../img/baner1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 75vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 👈 Empuja el contenido a la izquierda */
+    justify-content: flex-start; /* Empuja el contenido a la izquierda */
     text-align: left;
     color: var(--white);
 }
@@ -267,7 +269,7 @@ body {
     color: var(--text-dark);
 }
 
-/* GRID / TARJETAS */
+/* GRID GENERAL / TARJETAS */
 .grid-cards, .grid-services, .grid-plans {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -312,7 +314,7 @@ body {
     margin-bottom: 0.4rem;
 }
 
-/* Preview Trabajos */
+/* Preview Trabajos Estándar */
 .preview-item {
     border-radius: 10px;
     overflow: hidden;
@@ -428,16 +430,77 @@ body {
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
-    word-break: break-all; /* Evita que el correo se salga en pantallas pequeñas */
+    word-break: break-all;
 }
 
-/* Mantener el diseño limpio cuando pasa el mouse */
 .contact-card .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--white);
 }
 
-/* FOOTER */
+/* ==========================================================================
+   GALERÍA DE TRABAJOS (CUADRÍCULA DE 4 COLUMNAS CON CARRUSELES)
+   ========================================================================== */
+.jobs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* 4 columnas exactas */
+    gap: 15px;                                        /* Separación compacta entre cuadros */
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta contenedora con esquinas levemente redondeadas y proporción cuadrada */
+.jobs-grid .gallery-item {
+    width: 100% !important;
+    aspect-ratio: 1 / 1;                              /* Cuadrado perfecto (1:1) */
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+/* Integración estricta de Swiper dentro de las tarjetas */
+.jobs-grid .swiper {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+}
+
+.jobs-grid .swiper-wrapper,
+.jobs-grid .swiper-slide {
+    height: 100% !important;
+}
+
+.jobs-grid .swiper-slide img,
+.jobs-grid .swiper-slide video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;                                /* Cubre el área sin deformar */
+    display: block;
+}
+
+/* Flechas circulares sobrepuestas en las fotos */
+.jobs-grid .swiper-button-next,
+.jobs-grid .swiper-button-prev {
+    width: 32px !important;
+    height: 32px !important;
+    background-color: rgba(0, 0, 0, 0.4);            /* Círculo oscuro semitransparente */
+    border-radius: 50%;
+    color: #ffffff !important;
+}
+
+.jobs-grid .swiper-button-next::after,
+.jobs-grid .swiper-button-prev::after {
+    font-size: 14px !important;                       /* Tamaño del icono de la flecha */
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 .footer {
     background: var(--secondary-color);
     color: var(--white);
@@ -471,7 +534,15 @@ body {
     font-size: 0.85rem;
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   RESPONSIVE / DISPOSITIVOS MÓVILES
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .jobs-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 columnas en tablets */
+    }
+}
+
 @media (max-width: 768px) {
     .menu-hamburger {
         display: flex;
@@ -500,5 +571,11 @@ body {
     .contact-wrapper {
         grid-template-columns: 1fr;
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .jobs-grid {
+        grid-template-columns: 1fr !important; /* 1 columna en teléfonos */
     }
 }
